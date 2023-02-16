@@ -42,3 +42,5 @@ header ul li a:hover
     background-color: white;
     text-decoration:underline;
 }
+
+#map { height: 180px; }
