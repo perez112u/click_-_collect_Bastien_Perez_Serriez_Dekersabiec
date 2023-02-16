@@ -3,6 +3,7 @@
 namespace ccd\render;
 
 use ccd\models\Produit;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 
 /**
@@ -30,6 +31,8 @@ class ProduitRenderer implements Renderer
     private function renderCompact(): string
     {
        // TODO: A completer
+        $html = "";
+
     }
 
     /**
@@ -48,6 +51,15 @@ class ProduitRenderer implements Renderer
      */
     public function render(int $selector): string
     {
-        // TODO: Implement render() method.
+        $html = "";
+        switch ($selector) {
+            case Renderer::COMPACT:
+                $html = $this->renderCompact();
+                break;
+            case Renderer::DETAIL:
+                $html = $this->renderDetail();
+                break;
+        }
+        return $html;
     }
 }
