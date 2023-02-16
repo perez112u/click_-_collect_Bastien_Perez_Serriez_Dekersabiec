@@ -1,0 +1,34 @@
+body
+{
+    background-color: black;
+    color: white;
+    font-family: Arial, Segoe UI;
+    margin: 0;
+    padding: 0;
+}
+
+header
+{
+    display:inline;
+    font-size:1.1vw;
+}
+
+header ul
+{
+    display:inline-block;
+}
+
+header ul li
+{
+    display:inline-block;
+    padding: 0.2vh 0.6vw 0.2vh 0.6vw;
+    text-decoration: none;
+    color: #34E9F7;
+}
+
+header ul li:hover
+{
+    color: black;
+    background-color: white;
+    text-decoration:underline;
+}
