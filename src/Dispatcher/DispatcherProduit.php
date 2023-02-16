@@ -64,12 +64,10 @@ class DispatcherProduit {
                         </ul>     
                     </nav>   
                     <div id="pages">
-                        <ul>
                             <form class="form" method="post" action="?action=afficher-catalogue">
-                <button id="showComment" type="submit" name="serieId" value="rgirig" title="Show comments">Show comments</button>
+                                <button id="showComment" type="submit" name="serieId" value="rgirig" title="Show comments">Show comments</button>
                             $cat
                             </form>
-                        </ul>
                     </div>              
                 </header>
                 <h2>Produits Click & Collect</h2>          
