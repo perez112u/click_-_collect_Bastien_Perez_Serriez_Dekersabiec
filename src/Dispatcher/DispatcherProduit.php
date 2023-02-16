@@ -3,7 +3,7 @@
 namespace ccd\Dispatcher;
 
 use ccd\Action\AffichageProduit;
-
+use ccd\render\CatalogueRenderer;
 
 
 class DispatcherProduit {
@@ -32,6 +32,8 @@ class DispatcherProduit {
 
 
     public function renderPage(string $html): void {
+        $cat = CatalogueRenderer::recupererBoutonHtml();
+
         echo <<<END
             <!DOCTYPE html>
             <html lang="fr">
@@ -53,7 +55,14 @@ class DispatcherProduit {
                             <li><a href="index.php?action=afficher-commande">Commandes</a></li>
                             <li><a href="index"></a></li>
                         </ul>     
-                    </nav>                 
+                    </nav>   
+                    <div id="pages">
+                        <ul>
+                            <form class="form" method="post" action="?action=afficher-catalogue">
+                            $cat
+                            </form>
+                        </ul>
+                    </div>              
                 </header>
                 <h2>Produits Click & Collect</h2>          
                 <main id="main">
