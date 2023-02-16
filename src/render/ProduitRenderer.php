@@ -36,6 +36,8 @@ class ProduitRenderer implements Renderer
             <h2>' . $this->produit->prix . '</h2>
             <h3>' . $this->produit->lieu . '</h3>
             <img src="Ressources/Images/' . $this->produit->id . '.jpg" alt="test">
+            <div id="map"></div>
+            
         </button>';
     }
 
