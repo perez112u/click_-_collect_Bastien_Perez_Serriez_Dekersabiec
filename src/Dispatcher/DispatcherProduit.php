@@ -4,6 +4,7 @@ namespace ccd\Dispatcher;
 
 use ccd\Action\AffichageCatalogue;
 use ccd\Action\AffichageCatalogueLieu;
+use ccd\Action\AffichageProduit;
 use ccd\classes\Catalogue;
 
 class DispatcherProduit {
@@ -23,6 +24,10 @@ class DispatcherProduit {
 
             switch ($this->action) {
                 case 'afficher-produit':
+                    if (isset($_POST['idProduit'])) {
+                        $act = new AffichageProduit($_POST['idProduit']);
+                        $html = $act->execute();
+                    }
                     break;
 
                 case 'afficher-catalogue':
@@ -50,8 +55,6 @@ class DispatcherProduit {
                         $act = new AffichageCatalogue($cat);
                         $html = $act->execute();
                     }
-
-
                     break;
 
             }

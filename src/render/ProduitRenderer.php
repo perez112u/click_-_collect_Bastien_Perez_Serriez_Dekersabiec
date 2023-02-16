@@ -39,7 +39,8 @@ class ProduitRenderer implements Renderer
     }
     private function renderCompact(): string
     {
-        return '<br><button id="buttonProd" type="submit" name="idProduit" value=" '. $this->produit->id . '">
+        return '<form method="post" action="?action=afficher-produit">
+            <br><button id="buttonProd" type="submit" name="idProduit" value=" '. $this->produit->id . '">
             <img src="Ressources/Images/' . $this->produit->id . '.jpg" alt="test">
 
             <div>
@@ -47,7 +48,8 @@ class ProduitRenderer implements Renderer
             <h2>' . $this->produit->prix . ' ' . $this->Poidscar() .'</h2>
             <h3>Lieu de production : ' . $this->produit->lieu . '</h3>
             </div>            
-        </button>';
+        </button>
+        </form>';
     }
 
     /**

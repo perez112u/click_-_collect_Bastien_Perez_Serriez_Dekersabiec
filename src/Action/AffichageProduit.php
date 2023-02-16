@@ -2,28 +2,28 @@
 
 namespace ccd\Action;
 
-use ccd\models\produit;
+use ccd\models\Produit;
 use ccd\render\ProduitRenderer;
 use ccd\render\Renderer;
 
+
 class AffichageProduit extends Action {
+
+    private int $idProduit;
+
+    public function __construct(int $id)
+    {
+        parent::__construct();
+        $this->idProduit = $id;
+    }
 
 
     public function execute(): string
     {
-        $produits = produit::get();
-        $res = "<div id='catalogue-produits'>";
+        $p = produit::where('id','=',$this->idProduit)->first();
+        $pr = new ProduitRenderer($p);
+        return $pr->render(Renderer::DETAIL);
 
-        /**
-         * Affiche tout les produits
-         */
-        foreach ($produits as $p) {
-            $renderer = new ProduitRenderer($p);
-            $res .= $renderer->render(Renderer::COMPACT);
-        }
-
-        $res .= "</div>";
-        return $res;
 
     }
 }

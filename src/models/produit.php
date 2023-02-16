@@ -4,7 +4,8 @@ declare(strict_types=1);
 namespace ccd\models;
 use Illuminate\Database\Eloquent as Eloq;
 
-class produit extends Eloq\Model
+
+class Produit extends Eloq\Model
 {
     protected $table = 'produit';
     protected $primaryKey = 'id';
