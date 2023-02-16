@@ -11,7 +11,7 @@ class AffichageProduit extends Action {
 
     public function execute(): string
     {
-        $produits = produit::get();
+        $produits = Produit::get();
         $res = "<div id='catalogue-produits'>";
 
         /**
