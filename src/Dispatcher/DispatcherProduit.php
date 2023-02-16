@@ -19,11 +19,11 @@ class DispatcherProduit {
 
         switch ($this->action) {
             case 'afficher-produit':
-                $act = new AffichageProduit($_POST['idProduit']);
-                $html = $act->execute();
                 break;
             default:
-                $html = "<p>Erreur action</p>";
+                $act = new AffichageProduit();
+                $html = $act->execute();
+                break;
 
         }
 
@@ -32,10 +32,25 @@ class DispatcherProduit {
 
 
     public function renderPage(string $html): void {
-        echo <<<END 
-        
-       //code html
-       
+        echo <<<END
+            <!DOCTYPE html>
+            <html lang="fr">
+            <head>
+                <title>Click & Collect</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="stylesheet" href="css/style.css">
+            </head>
+            <body>
+                <header id="header">
+                    <nav id="nav">     
+                    </nav>                 
+                </header>          
+                <main id="main">
+                    $html
+                </main>
+            </body>
+            </html> 
         END;
 
     }

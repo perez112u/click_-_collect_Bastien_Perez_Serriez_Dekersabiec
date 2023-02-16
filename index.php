@@ -15,3 +15,5 @@ $db->setAsGlobal();
 $db->bootEloquent();
 
 
+$dispatcher = new \ccd\Dispatcher\DispatcherProduit();
+$dispatcher->run();

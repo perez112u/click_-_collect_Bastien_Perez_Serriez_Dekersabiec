@@ -3,6 +3,7 @@
 namespace ccd\render;
 
 use ccd\models\Produit;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 
@@ -14,12 +15,12 @@ class ProduitRenderer implements Renderer
     /**
      * @var Produit $produit
      */
-    private Produit $produit;
+    private Model $produit;
 
     /**
      * @param Produit $produit
      */
-    public function __construct(Produit $produit)
+    public function __construct(Model $produit)
     {
         $this->produit = $produit;
     }
@@ -31,9 +32,9 @@ class ProduitRenderer implements Renderer
     private function renderCompact(): string
     {
        // TODO: A completer
-        return '<br><button id="buttonProd" type="submit" name="idProduit" value=" '. $this->produit->getId() . '">
-            <h2>' . $this->produit->getPrix() . '</h2>
-            <h3>' . $this->produit->getLieu() . '</h3>
+        return '<br><button id="buttonProd" type="submit" name="idProduit" value=" '. $this->produit->id . '">
+            <h2>' . $this->produit->prix . '</h2>
+            <h3>' . $this->produit->lieu . '</h3>
             <img src="Ressources/Images/test.jpg" alt="test">
         </button>';
     }
