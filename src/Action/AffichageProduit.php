@@ -19,7 +19,7 @@ class AffichageProduit extends Action {
          */
         foreach ($produits as $p) {
             $renderer = new ProduitRenderer($p);
-            $res .= $renderer->render(Renderer::DETAIL);
+            $res .= $renderer->render(Renderer::COMPACT);
         }
 
         $res .= "</div>";
