@@ -43,9 +43,19 @@ class DispatcherProduit {
             </head>
             <body>
                 <header id="header">
-                    <nav id="nav">     
+                <h1>Court-Circuit</h1>
+                    
+                    <nav id="nav">
+                        <ul>
+                            <li><a href="index.php">Accueil</a></li>
+                            <li><a href="index.php?action=afficher-produit">Produits</a></li>
+                            <li><a href="index.php?action=afficher-categorie">Catégories</a></li>
+                            <li><a href="index.php?action=afficher-commande">Commandes</a></li>
+                            <li><a href="index"></a></li>
+                        </ul>     
                     </nav>                 
-                </header>          
+                </header>
+                <h2>Produits Click & Collect</h2>          
                 <main id="main">
                     $html
                 </main>
