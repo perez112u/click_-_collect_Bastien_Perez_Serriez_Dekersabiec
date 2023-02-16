@@ -53,6 +53,7 @@ header ul li a:hover
     text-decoration:underline;
 }
 
+
 main
 {
     font-family: "Segoe UI";
@@ -92,3 +93,6 @@ main button div
     width:50vw;
     height:100%;
 }
+
+#map { height: 180px; }
+
