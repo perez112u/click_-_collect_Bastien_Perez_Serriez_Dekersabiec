@@ -4,7 +4,7 @@ namespace ccd\Action;
 
 
 use ccd\classes\Catalogue;
-use ccd\models\Produit;
+use ccd\models\produit;
 use ccd\render\ProduitRenderer;
 use ccd\render\Renderer;
 use Illuminate\Support\Collection;
