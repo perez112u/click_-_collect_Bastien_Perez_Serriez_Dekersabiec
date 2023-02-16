@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace models;
+namespace ccd\models;
 use Illuminate\Database\Eloquent as Eloq;
 
 class Produit extends Eloq\Model
