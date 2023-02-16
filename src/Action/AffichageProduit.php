@@ -2,7 +2,7 @@
 
 namespace ccd\Action;
 
-use ccd\models\Produit;
+use ccd\models\produit;
 use ccd\render\ProduitRenderer;
 use ccd\render\Renderer;
 
@@ -11,7 +11,7 @@ class AffichageProduit extends Action {
 
     public function execute(): string
     {
-        $produits = Produit::get();
+        $produits = produit::get();
         $res = "<div id='catalogue-produits'>";
 
         /**
