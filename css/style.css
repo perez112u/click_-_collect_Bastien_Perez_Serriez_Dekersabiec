@@ -21,10 +21,11 @@ header ul
 header ul li
 {
     display:inline-block;
-    padding: 0.5vh 0.8vw 0.5vh 0.8vw;
+    padding: 0.8vh 1.2vw 0.8vh 1.2vw;
     text-decoration: none;
     color: #34E9F7;
     border:1px solid white;
+    border-radius:4px;
     text-align:center;
     vertical-align:middle;
 
@@ -36,9 +37,37 @@ header ul li a
     color: #34E9F7;
 }
 
+header ul li:hover
+{
+    background-color: white;
+}
+
 header ul li a:hover
 {
     color: black;
-    background-color: white;
     text-decoration:underline;
+}
+
+main button
+{
+    background-color:#2B6115;
+    color:white;
+    margin:1vh 2vw 1vh 2vw;
+    padding:0;
+    width:80vw;
+    display:flex;
+}
+
+main button img
+{
+    width:25vw;
+    text-align: left;
+    padding:0;
+    margin:0;
+    display:inline;
+}
+
+main button:hover
+{
+    cursor:pointer;
 }
