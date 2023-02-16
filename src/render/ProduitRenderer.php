@@ -29,14 +29,27 @@ class ProduitRenderer implements Renderer
      * Gère l'affiche d'un produit dans le catalogue
      * @return string
      */
+    private function Poidscar(): string
+    {
+        if ($this->produit->poids == 0) {
+            return "€ /kg";
+        } else {
+            return "€ (Prix unitaire)";
+        }
+    }
     private function renderCompact(): string
     {
         return '<br><button id="buttonProd" type="submit" name="idProduit" value=" '. $this->produit->id . '">
-            <h1>' . $this->produit->nom . '</h1>
-            <h2>' . $this->produit->prix . '</h2>
-            <h3>' . $this->produit->lieu . '</h3>
             <img src="Ressources/Images/' . $this->produit->id . '.jpg" alt="test">
+<<<<<<< HEAD
+            <div>
+            <h1>' . $this->produit->nom . '</h1>
+            <h2>' . $this->produit->prix . ' ' . $this->Poidscar() .'</h2>
+            <h3>Lieu de production : ' . $this->produit->lieu . '</h3>
+            <div>
+=======
             <div id="map"></div>
+>>>>>>> 80ea7031b36122a9a1201daeaa53808bde180896
             
         </button>';
     }
