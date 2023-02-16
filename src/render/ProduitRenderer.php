@@ -31,7 +31,6 @@ class ProduitRenderer implements Renderer
      */
     private function renderCompact(): string
     {
-       // TODO: A completer
         return '<br><button id="buttonProd" type="submit" name="idProduit" value=" '. $this->produit->id . '">
             <h2>' . $this->produit->prix . '</h2>
             <h3>' . $this->produit->lieu . '</h3>
@@ -46,6 +45,18 @@ class ProduitRenderer implements Renderer
     private function renderDetail(): string
     {
         // TODO: A completer
+        $ressources = "Ressources/Images/" . $this->produit->id . ".jpg";
+        return "<div class='produit'>
+                        <img src='{$ressources}' alt='imageProd'>
+                        <h1>Nom : {$this->produit->nom}</h1>
+                        <h2>Categorie : {$this->produit->categorie}</h2>
+                        <h3>Prix : {$this->produit->prix}</h3>
+                        <h3>Poids : {$this->produit->poids}</h3>
+                        <p>Description: {$this->produit->description}</p>
+                        <p>detail : {$this->produit->detail}</p>
+                        <h4>Lieu : {$this->produit->lieu}</h4>
+               </div>";
+        //Ajouter la localisaton
     }
 
     /**
