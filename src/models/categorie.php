@@ -10,4 +10,8 @@ class Categorie extends Eloq\Model
     protected $primaryKey = 'id';
     public $timestamps = false;
 
+    public function produits() {
+        return $this->hasMany('ccd\models\produit', 'categorie');
+    }
+
 }

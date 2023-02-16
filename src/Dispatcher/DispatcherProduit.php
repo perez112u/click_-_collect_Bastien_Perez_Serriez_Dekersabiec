@@ -2,9 +2,9 @@
 
 namespace ccd\Dispatcher;
 
-use ccd\Action\AffichageProduit;
-use ccd\render\CatalogueRenderer;
-
+use ccd\Action\AffichageCatalogue;
+use ccd\Action\AffichageCatalogueLieu;
+use ccd\classes\Catalogue;
 
 class DispatcherProduit {
 
@@ -12,34 +12,61 @@ class DispatcherProduit {
 
 
     public function __construct() {
-        $this->action = $GET['action'] ?? null;
+        $this->action = $_GET['action'] ?? null;
     }
 
     public function run (): void {
 
-        switch ($this->action) {
-            case 'afficher-produit':
-                break;
+        $html = "";
 
-            case 'afficher-catalogue':
-                echo 'caca';
-                if (isset($_POST["c1"])) {
-                    echo "BLIBLIBLIBLIBLIBLIBLI";
-                }
-                break;
-            default:
-                $act = new AffichageProduit();
-                $html = $act->execute();
-                break;
+        if (isset($_GET['action'])) {
 
+            switch ($this->action) {
+                case 'afficher-produit':
+                    break;
+
+                case 'afficher-catalogue':
+                    if (isset($_POST["catalogue"])) {
+                        $cat = $_POST["catalogue"];
+                        $act = new AffichageCatalogue($cat);
+                        $html = $act->execute();
+                    }
+                    break;
+                case 'filtrer':
+                    if (isset($_POST["catalogue"])) {
+                        $cat = $_POST["catalogue"];
+                    } else {
+                        //encore page par defaut
+                        $cat = 1;
+                    }
+                    if ($_POST['lieu'] != '') {
+                        Catalogue::setLieu($_POST['lieu']);
+                        $act = new AffichageCatalogue($cat);
+                        $html = $act->execute();
+                    }
+
+                    if ($_POST['categorie'] != '') {
+                        Catalogue::setCategorie($_POST['categorie']);
+                        $act = new AffichageCatalogue($cat);
+                        $html = $act->execute();
+                    }
+
+
+                    break;
+
+            }
+        } else {
+            $act = new AffichageCatalogue(1);
+            $html = $act->execute();
         }
 
         $this->renderPage($html);
+
     }
 
 
     public function renderPage(string $html): void {
-        $cat = CatalogueRenderer::recupererBoutonHtml();
+        $cat = Catalogue::recupererBoutonHtml();
 
         echo <<<END
             <!DOCTYPE html>
@@ -66,16 +93,24 @@ class DispatcherProduit {
                             <li><a href="index"></a></li>
                         </ul>     
                     </nav>   
+                    <div id="filtres">
+                        <form class="form" method="post" action="?action=filtrer">
+                        <label>Lieu :</label>
+                        <input class="input-filtre" type="text" name="lieu">
+                        <label>Categorie :</label>
+                        <input class="input-filtre" type="text" name="categorie">
+                        <button type="submit">Rechercher</button>
+                        </form>
+                    </div>
                     <div id="pages">
                             <form class="form" method="post" action="?action=afficher-catalogue">
-                                <button id="showComment" type="submit" name="serieId" value="rgirig" title="Show comments">Show comments</button>
                             $cat
                             </form>
                     </div>              
                 </header>
                 <h2>Produits Click & Collect</h2>          
                 <main id="main">
-                    $html
+                   $html
                 </main>
             </body>
             </html> 
