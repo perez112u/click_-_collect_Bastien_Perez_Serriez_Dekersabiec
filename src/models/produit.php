@@ -11,7 +11,7 @@ class Produit extends Eloq\Model
     public $timestamps = false;
 
     public function categorie() {
-        return $this->belongsTo('ccd\models\Categorie', 'categorie_id');
+        return $this->belongsTo('ccd\models\Categorie', 'categorie');
     }
 
 
