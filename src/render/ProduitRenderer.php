@@ -31,8 +31,11 @@ class ProduitRenderer implements Renderer
     private function renderCompact(): string
     {
        // TODO: A completer
-        $html = "";
-
+        return '<br><button id="buttonProd" type="submit" name="idProduit" value=" '. $this->produit->getId() . '">
+            <h2>' . $this->produit->getPrix() . '</h2>
+            <h3>' . $this->produit->getLieu() . '</h3>
+            <img src="Ressources/Images/test.jpg" alt="test">
+        </button>';
     }
 
     /**
