@@ -9,5 +9,5 @@ class Categorie extends Eloq\Model
     protected $table = 'categorie';
     protected $primaryKey = 'id';
     public $timestamps = false;
-    
+
 }
