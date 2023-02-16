@@ -3,7 +3,7 @@
 declare(strict_types=1);
 require 'vendor/autoload.php';
 
-use models\produit;
+use ccd\models\produit;
 use Illuminate\Database\Capsule\Manager as DB;
 
 
@@ -15,6 +15,3 @@ $db->setAsGlobal();
 $db->bootEloquent();
 
 
-foreach (produit::get() as $p) {
-    echo $p . "<br>";
-}
