@@ -21,7 +21,7 @@ class CatalogueRenderer implements Renderer
         $nb = ceil(count($produits)/5);
 
         for ($i = 1; $i<=$nb; $i++) {
-            $html .= '<button type="submit" name="c"' . $i . '">Page ' . $i . '</button>';
+            $html .= '<button type="submit" name="c' . $i . '">Page ' . $i . '</button>';
         }
         return $html;
     }

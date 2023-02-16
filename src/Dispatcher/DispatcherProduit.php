@@ -20,6 +20,13 @@ class DispatcherProduit {
         switch ($this->action) {
             case 'afficher-produit':
                 break;
+
+            case 'afficher-catalogue':
+                echo 'caca';
+                if (isset($_POST["c1"])) {
+                    echo "BLIBLIBLIBLIBLIBLIBLI";
+                }
+                break;
             default:
                 $act = new AffichageProduit();
                 $html = $act->execute();
@@ -59,6 +66,7 @@ class DispatcherProduit {
                     <div id="pages">
                         <ul>
                             <form class="form" method="post" action="?action=afficher-catalogue">
+                <button id="showComment" type="submit" name="serieId" value="rgirig" title="Show comments">Show comments</button>
                             $cat
                             </form>
                         </ul>
